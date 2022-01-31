@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  port: "{{ .Values.myconfig.port }}"
+  name: {{ .Values.myconfig.name }}
+  descr: {{ .Values.myconfig.descr }}
+  {{ if .Values.myconfig.enabled }}
+  enabled: 'Y'
+  {{ end }}
